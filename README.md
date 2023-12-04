@@ -10,7 +10,7 @@ AngulaCLI: 17.0.5
 
 # Comandos utilizados
 
-npm install -g @angular/cli
+npm install -g @angular/cli\n
 npm install @material/web
 npm install --save angular-material
 npm install --save @angular/cdk
