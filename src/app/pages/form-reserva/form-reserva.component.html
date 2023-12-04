@@ -50,13 +50,15 @@
                     <!-- check-in -->
                     <mat-form-field class="form-field">
                         <mat-label>Check-in</mat-label>
-                        <input matInput placeholder="Check-in" type="text" formControlName="check_in">
+                        <input matInput placeholder="Check-in" type="text" [value]="formatarDataHora('check_in')"
+                            disabled>
                     </mat-form-field>
 
                     <!-- checkout -->
                     <mat-form-field class="form-field">
                         <mat-label>Checkout</mat-label>
-                        <input matInput placeholder="Checkout" type="text" formControlName="checkout">
+                        <input matInput placeholder="Checkout" type="text" [value]="formatarDataHora('checkout')"
+                            disabled>
                     </mat-form-field>
                 </div>
 

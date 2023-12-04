@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Observable, map, startWith } from 'rxjs';
+import { Observable, Timestamp, map, startWith } from 'rxjs';
 import { MessageUtils } from '../../utils/message-utils';
 import { ReservaService } from '../../service/reserva.service';
 import { HospedeService } from '../../service/hospede.service';
@@ -13,7 +13,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalTotalizadorComponent } from '../../components/modal-totalizador/modal-totalizador.component';
 
 @Component({
   selector: 'app-form-reserva',
@@ -59,8 +58,6 @@ export class FormReservaComponent {
     });
 
     this.form.get('vl_total')?.disable();
-    this.form.get('check_in')?.disable();
-    this.form.get('checkout')?.disable();
 
     if (this.id !== 'novo') this.buscar();
   }
@@ -138,6 +135,21 @@ export class FormReservaComponent {
     let dataHoraAtual = new Date();
     this.form.get('checkout')?.setValue(dataHoraAtual);
     this.salvar();
+  }
+
+  formatarDataHora(field: string): string {
+    const dateTime = this.form.get(field)?.value;
+    
+    if (dateTime) {
+      const date = dateTime.slice(0, 10);
+      const time = dateTime.slice(11, 19);
+      
+      const result = new Date(`${date}T${time}`);
+      result.setHours(result.getHours() - 3);
+      return result.toLocaleString();
+    }
+    
+    return '';
   }
 
   excluir(): void {
