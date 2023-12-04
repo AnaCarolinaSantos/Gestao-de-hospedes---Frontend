@@ -1,0 +1,51 @@
+<div class="container">
+    <mat-card class="card">
+        <mat-card-title class="card-title">Formulário do hóspede</mat-card-title>
+        <mat-card-content>
+            <form class="form" [formGroup]="form">
+
+                <!-- nome -->
+                <mat-form-field class="form-field">
+                    <mat-label>Nome</mat-label>
+                    <input matInput name="nome" placeholder="Nome completo" formControlName="nome" required>
+                </mat-form-field>
+
+                <!-- dt_nascimento -->
+                <mat-form-field class="form-field">
+                    <mat-label>Data de nascimento</mat-label>
+                    <input matInput [matDatepicker]="dt_nascimento" placeholder="dd/mm/aaaa"
+                        formControlName="dt_nascimento">
+                    <mat-datepicker-toggle matIconSuffix [for]="dt_nascimento"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #dt_nascimento></mat-datepicker>
+                </mat-form-field>
+
+                <!-- cpf -->
+                <mat-form-field class="form-field">
+                    <mat-label>CPF</mat-label>
+                    <input matInput name="cpf" placeholder="000.000.000-00" inputmode="numeric" mask="000.000.000-00"
+                        formControlName="cpf" required>
+                </mat-form-field>
+
+                <!-- telefone -->
+                <mat-form-field class="form-field">
+                    <mat-label>Telefone</mat-label>
+                    <input matInput name="telefone" placeholder="(00) 0 0000-0000" formControlName="telefone"
+                        mask="(00) 0 0000 0000" prefix="+55 " type="tel" required>
+                </mat-form-field>
+
+                <!-- email -->
+                <mat-form-field class="form-field">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput name="email" placeholder="exemplo@email.com" formControlName="email" type="email">
+                </mat-form-field>
+
+                <div class="buttons">
+                    <button mat-raised-button color="accent" (click)="excluir()"
+                        [disabled]="id === 'novo'">Excluir</button>
+                    <button mat-raised-button color="primary" (click)="salvar()"
+                        [disabled]="form.invalid">Salvar</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

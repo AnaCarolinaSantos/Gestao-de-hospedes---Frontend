@@ -1,0 +1,14 @@
+.header-items {
+    display: flex;
+    text-decoration: none;
+    color: #FFFFFF;
+    
+    .header-logo {
+        width: 40px;
+        margin-right: 20px;
+    }
+    
+    .header-title {
+        align-self: center;
+    }
+}

@@ -1,0 +1,19 @@
+.total-title {
+    margin: 0;
+}
+
+.total-list {
+    min-width: 300px;
+
+    .total-item {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 2px;
+    }
+
+    .pink {
+        color: #000000 !important;
+        background-color: rgb(127, 15, 68) !important;
+    }
+}

@@ -1,0 +1,41 @@
+<h1 class="total-title" mat-dialog-title>Totais</h1>
+<mat-dialog-content class="mat-typography">
+    <mat-list class="total-list">
+
+        <li>
+            <div class="total-item pink">
+                <div matListItemLine>Diárias</div>
+                <div matListItemTitle>{{ data.qt_diarias }}</div>
+            </div>
+        </li>
+
+        <li>
+            <div class="total-item">
+                <div matListItemLine>Valor das diárias</div>
+                <div matListItemTitle>{{ data.vl_diarias | currency: 'R$ ' }}</div>
+            </div>
+        </li>
+
+        <li>
+            <div class="total-item pink">
+                <div matListItemLine>Taxa de estacionamento</div>
+                <div matListItemTitle>{{ data.vl_taxa_estacionamento | currency: 'R$ ' }}</div>
+            </div>
+        </li>
+
+        <li>
+            <div class="total-item">
+                <div matListItemLine>Taxa de checkout atrasado</div>
+                <div matListItemTitle>{{ data.vl_taxa_checkout_atrasado | currency: 'R$ ' }}</div>
+            </div>
+        </li>
+
+        <li>
+            <div class="total-item pink">
+                <div matListItemLine>Valor total a pagar</div>
+                <div matListItemTitle>{{ data.vl_total | currency: 'R$ ' }}</div>
+            </div>
+        </li>
+
+    </mat-list>
+</mat-dialog-content>

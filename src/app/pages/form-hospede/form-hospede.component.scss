@@ -1,0 +1,31 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card {
+    text-align: center;
+    color: #FFFFFF;
+    margin: 3% 15% 3% 15%;
+    padding: 10px;
+    
+    .card-title {
+        margin: 20px;
+    }
+    
+    .form {
+        text-align: center;
+        
+        .form-field {
+            margin: 10px;
+            width: 350px;
+        }
+        
+        .buttons {
+            margin: 0 30% 0 30%;
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}

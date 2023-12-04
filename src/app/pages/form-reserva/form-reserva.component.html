@@ -1,0 +1,87 @@
+<div class="container">
+    <mat-card class="card">
+        <mat-card-title class="card-title">Formulário da reserva</mat-card-title>
+        <mat-card-content>
+            <form class="form" [formGroup]="form">
+
+                <!-- id_hospede -->
+                <mat-form-field class="form-field">
+                    <mat-label>Hóspede</mat-label>
+                    <input type="text" placeholder="Selecione um hóspede" aria-label="Hóspede" matInput
+                        [formControl]="control" formControlName="id_hospede" [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                        (optionSelected)="onSelectionChange($event)">
+                        @for (option of filteredOptions | async; track option) {
+                        <mat-option [value]="option">{{ option }}</mat-option>
+                        }
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <!-- vl_total -->
+                <mat-form-field class="form-field" style="width: 300px;">
+                    <mat-label>Valor total</mat-label>
+                    <input matInput placeholder="Valor total" formControlName="vl_total" currencyMask
+                        [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+                </mat-form-field>
+                <button mat-mini-fab matSuffix color="primary" (click)="mostrarTotalizadores()"
+                    [disabled]="form.get('checkout')?.value === null">
+                    <mat-icon>receipt_long</mat-icon>
+                </button>
+
+                <!-- dt_inicial -->
+                <mat-form-field class="form-field">
+                    <mat-label>Data inicial</mat-label>
+                    <input matInput [matDatepicker]="dt_inicial" placeholder="dd/mm/aaaa" formControlName="dt_inicial"
+                        required>
+                    <mat-datepicker-toggle matIconSuffix [for]="dt_inicial"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #dt_inicial></mat-datepicker>
+                </mat-form-field>
+
+                <!-- dt_final -->
+                <mat-form-field class="form-field">
+                    <mat-label>Data final</mat-label>
+                    <input matInput [matDatepicker]="dt_final" placeholder="dd/mm/aaaa" formControlName="dt_final"
+                        required>
+                    <mat-datepicker-toggle matIconSuffix [for]="dt_final"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #dt_final></mat-datepicker>
+                </mat-form-field>
+
+                <div>
+                    <!-- check-in -->
+                    <mat-form-field class="form-field">
+                        <mat-label>Check-in</mat-label>
+                        <input matInput placeholder="Check-in" type="text" formControlName="check_in">
+                    </mat-form-field>
+
+                    <!-- checkout -->
+                    <mat-form-field class="form-field">
+                        <mat-label>Checkout</mat-label>
+                        <input matInput placeholder="Checkout" type="text" formControlName="checkout">
+                    </mat-form-field>
+                </div>
+
+                <!-- estacionamento -->
+                <mat-checkbox formControlName="estacionamento"
+                    formControlName="estacionamento">Estacionamento</mat-checkbox>
+
+                <div>
+                    <!-- realizar check-in -->
+                    <button class="check-in-checkout-button" mat-stroked-button color="primary" (click)="checkIn()"
+                        [disabled]="form.get('check_in')?.value !== null || id === 'novo'">Confirmar check-in</button>
+
+                    <!-- realizar checkout -->
+                    <button class="check-in-checkout-button" mat-stroked-button color="primary" (click)="checkout()"
+                        [disabled]="form.get('check_in')?.value === null || form.get('checkout')?.value !== null || id === 'novo'">Confirmar
+                        checkout</button>
+                </div>
+
+                <div class="buttons">
+                    <button mat-raised-button color="accent" (click)="excluir()"
+                        [disabled]="id === 'novo'">Excluir</button>
+                    <button mat-raised-button color="primary" (click)="salvar()"
+                        [disabled]="form.invalid">Salvar</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

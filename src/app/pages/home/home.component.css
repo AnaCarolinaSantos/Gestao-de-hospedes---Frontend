@@ -1,0 +1,29 @@
+.menu {
+  display: flex;
+  padding: 5% 20% 5% 20%;
+  justify-content: space-around;
+}
+.menu .menu-items a {
+  text-decoration: none;
+}
+.menu .example-card {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+.menu .example-card:hover {
+  box-shadow: 3px 3px 10px #000000;
+}
+.menu .example-card .card-title {
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+.menu .example-card .card-img {
+  background-size: cover;
+  width: 200px;
+}/*# sourceMappingURL=home.component.css.map */

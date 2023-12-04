@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="header">
+        <h1>Reservas</h1>
+        <button routerLink="/form-reserva/novo" mat-raised-button color="primary">
+            <mat-icon>add</mat-icon>
+            Cadastrar
+        </button>
+    </div>
+
+    <mat-card class="card">
+        <table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="hospede">
+                <th mat-header-cell *matHeaderCellDef> Hóspede </th>
+                <td mat-cell *matCellDef="let element"> {{element.hospede}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="data_inicial">
+                <th mat-header-cell *matHeaderCellDef> Data inicial </th>
+                <td mat-cell *matCellDef="let element"> {{element.dt_inicial | date: 'dd/MM/yyyy'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="data_final">
+                <th mat-header-cell *matHeaderCellDef> Data final </th>
+                <td mat-cell *matCellDef="let element"> {{element.dt_final | date: 'dd/MM/yyyy'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="check-in">
+                <th mat-header-cell *matHeaderCellDef> Check-in </th>
+                <td mat-cell *matCellDef="let element"> {{element.check_in | date: 'dd/MM/yyyy HH:mm'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="checkout">
+                <th mat-header-cell *matHeaderCellDef> Checkout </th>
+                <td mat-cell *matCellDef="let element"> {{element.checkout | date: 'dd/MM/yyyy HH:mm'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="acao">
+                <th mat-header-cell *matHeaderCellDef> Ação </th>
+                <td mat-cell *matCellDef="let element">
+                    <button [routerLink]="['/form-reserva', element.id]" mat-raised-button color="primary">
+                        <mat-icon>edit</mat-icon>
+                        Atualizar
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator #paginatorR [pageSize]="5" [pageSizeOptions]="[5]" [showFirstLastButtons]="true"></mat-paginator>
+    </mat-card>
+</div>

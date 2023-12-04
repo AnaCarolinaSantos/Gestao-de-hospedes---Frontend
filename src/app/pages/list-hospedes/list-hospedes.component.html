@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="header">
+        <h1>Hóspedes</h1>
+        <button routerLink="/form-hospede/novo" mat-raised-button color="primary">
+            <mat-icon>add</mat-icon>
+            Cadastrar
+        </button>
+    </div>
+
+    <mat-card class="card-filters">
+        <mat-card-title class="card-filters-title">Filtros</mat-card-title>
+        <mat-card-content>
+            <form>
+                <mat-form-field class="form-field" style="width: 400px;">
+                    <mat-label>Localizar hóspedes</mat-label>
+                    <input type="text" placeholder="Selecione um filtro" aria-label="Localizar hóspedes" matInput
+                        formControlName="myControl" [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                        (optionSelected)="onSelectionChange($event)">
+                        @for (option of filteredOptions | async; track option) {
+                        <mat-option [value]="option">{{option}}</mat-option>
+                        }
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <mat-form-field class="form-field" *ngIf="enableFilters" style="width: 300px;">
+                    <mat-label>Nome</mat-label>
+                    <input matInput #nomeFilter (input)="filtrarLista(nomeFilter.value, 'nome')">
+                </mat-form-field>
+
+                <mat-form-field class="form-field" *ngIf="enableFilters" style="width: 200px;">
+                    <mat-label>CPF</mat-label>
+                    <input matInput #cpfFilter (input)="filtrarLista(cpfFilter.value, 'cpf')">
+                    <mat-hint>000.000.000-00</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field class="form-field" *ngIf="enableFilters" style="width: 200px;">
+                    <mat-label>Telefone</mat-label>
+                    <input matInput #telefoneFilter (input)="filtrarLista(telefoneFilter.value, 'telefone')">
+                    <mat-hint>+00 (00) 00000-0000</mat-hint>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="card">
+        <table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nome">
+                <th mat-header-cell *matHeaderCellDef> Nome </th>
+                <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="data_nascimento">
+                <th mat-header-cell *matHeaderCellDef> Data de nascimento</th>
+                <td mat-cell *matCellDef="let element"> {{element.dt_nascimento | date: 'dd/MM/yyyy'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cpf">
+                <th mat-header-cell *matHeaderCellDef> CPF </th>
+                <td mat-cell *matCellDef="let element"> {{element.cpf}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="telefone">
+                <th mat-header-cell *matHeaderCellDef> Telefone </th>
+                <td mat-cell *matCellDef="let element"> {{element.telefone}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> E-mail </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+            <ng-container>
+                <th mat-header-cell *matHeaderCellDef> Ação </th>
+                <td mat-cell *matCellDef="let element"> <button>Atualizar</button> </td>
+            </ng-container>
+
+            <ng-container matColumnDef="acao">
+                <th mat-header-cell *matHeaderCellDef> Ação </th>
+                <td mat-cell *matCellDef="let element">
+                    <button [routerLink]="['/form-hospede', element.id]" mat-raised-button color="primary">
+                        <mat-icon>edit</mat-icon>
+                        Atualizar
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator #paginatorH [pageSize]="5" [pageSizeOptions]="[5]" [showFirstLastButtons]="true"></mat-paginator>
+    </mat-card>
+</div>
