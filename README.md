@@ -2,21 +2,25 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
 
-# Versões 
+## Versões 
 
+```
 Node.js: v20.10.0
 npm: 9.6.7
 AngulaCLI: 17.0.5
+```
 
-# Comandos utilizados
+## Comandos utilizados
 
-npm install -g @angular/cli\n
+```
+npm install -g @angular/cli
 npm install @material/web
 npm install --save angular-material
 npm install --save @angular/cdk
 npm install --save ngx-mask@16.4.1
 ng add @angular/material
 npm i
+```
 
 ## Development server
 
