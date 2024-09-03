@@ -1,3 +1,84 @@
+# Gestão de hóspedes
+
+![Badge de Status](https://img.shields.io/badge/status-Done-green)
+
+Aplicação para gestão de hóspedes em um hotel. Permite a realização de reservas, check-in e checkout.
+
+## Índice
+
+- [Descrição do Projeto](#descrição-do-projeto)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Instalação e Configuração](#instalação-e-configuração)
+- [Contato](#contato)
+
+## Descrição do Projeto
+
+Explique mais detalhadamente o projeto. Você pode falar sobre a motivação, os objetivos e as principais funcionalidades que deseja implementar. Adicione qualquer informação relevante que ajude o leitor a entender melhor o projeto.
+
+## Funcionalidades
+
+Liste as principais funcionalidades do projeto, por exemplo:
+
+- [x] Autenticação de usuários
+- [x] Criação, edição e exclusão de posts
+- [x] Upload de imagens
+- [x] Sistema de comentários
+
+## Tecnologias Utilizadas
+
+Este projeto foi desenvolvido com as seguintes tecnologias:
+
+- [Linguagem de Programação](https://link_para_documentacao): Exemplo: Python, JavaScript, etc.
+- [Framework/Biblioteca](https://link_para_documentacao): Exemplo: Django, React, etc.
+- [Banco de Dados](https://link_para_documentacao): Exemplo: PostgreSQL, MongoDB, etc.
+- [Ferramenta de Testes](https://link_para_documentacao): Exemplo: PyTest, JUnit, etc.
+- [Outras tecnologias](https://link_para_documentacao): Exemplo: Docker, CI/CD, etc.
+
+## Instalação e Configuração
+
+Para rodar o projeto localmente, siga os passos abaixo:
+
+1. Clone este repositório:
+    ```bash
+    git clone https://github.com/usuario/nome-do-projeto.git
+    ```
+2. Navegue até o diretório do projeto:
+    ```bash
+    cd nome-do-projeto
+    ```
+3. Instale as dependências:
+    ```bash
+    # Se for um projeto em Python
+    pip install -r requirements.txt
+    ```
+    ```bash
+    # Se for um projeto em JavaScript
+    npm install
+    ```
+4. Configure as variáveis de ambiente:
+
+    Crie um arquivo `.env` e configure as variáveis necessárias:
+    ```bash
+    cp .env.example .env
+    ```
+    Atualize as variáveis conforme necessário.
+
+5. Execute o projeto:
+    ```bash
+    # Comando para iniciar o projeto
+    ```
+
+## Contato
+
+Se tiver alguma dúvida ou sugestão, entre em contato comigo:
+
+- Nome: Ana Carolina Santos
+- Email: ana.c.santos2003@gmail.com
+- LinkedIn: [ana-carolina-santos](https://www.linkedin.com/in/ana-carolina-santos-3549a2218/)
+- GitHub: [AnaCarolinaSantos](https://github.com/AnaCarolinaSantos)
+
+
 # Desafio---Full-Stack-Frontend
  Aplicação para gestão de hóspedes em um hotel. Permite a realização de reservas, check-in e checkout.
 
