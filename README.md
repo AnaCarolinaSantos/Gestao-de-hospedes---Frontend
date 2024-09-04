@@ -8,114 +8,48 @@ Aplicação para gestão de hóspedes em um hotel. Permite a realização de res
 
 - [Descrição do Projeto](#descrição-do-projeto)
 - [Funcionalidades](#funcionalidades)
+- [Regras de Negócio](#regras-de-negócio)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Instalação e Configuração](#instalação-e-configuração)
+- [Versões](#versões)
+- [Comandos utilizados](#comandos-utilizados)
 - [Contato](#contato)
 
 ## Descrição do Projeto
 
-Explique mais detalhadamente o projeto. Você pode falar sobre a motivação, os objetivos e as principais funcionalidades que deseja implementar. Adicione qualquer informação relevante que ajude o leitor a entender melhor o projeto.
+Este projeto tem como objetivo facilitar a gestão de hóspedes em um hotel, oferecendo uma solução eficiente para controlar reservas, check-ins e checkouts, além de calcular automaticamente os custos das diárias e taxas adicionais. A motivação por trás do desenvolvimento dessa aplicação é a necessidade de otimizar o processo de atendimento e gerenciamento de dados dos hóspedes, garantindo uma experiência mais fluida e ágil tanto para os funcionários quanto para os clientes.
 
 ## Funcionalidades
 
-Liste as principais funcionalidades do projeto, por exemplo:
+Principais funcionalidades do projeto:
 
-- [x] Autenticação de usuários
-- [x] Criação, edição e exclusão de posts
-- [x] Upload de imagens
-- [x] Sistema de comentários
+- [x] Armazenar de forma persistente o cadastro de hóspedes (Informações mínimas: Nome, documento, telefone).
+- [x] Armazenar de forma persistente as reservas geradas.
+- [x] Localizar hóspedes por: nome, documento e telefone.
+- [x] Localizar hóspedes que ainda estão no hotel.
+- [x] Localizar hóspedes que tem reservas, mas ainda não realizaram o check-in.
+- [x] Permitir ao atendente realizar o check-in.
+- [x] Permitir ao atendente realizar o checkout.
+
+## Regras de Negócio
+
+Principais regras de negócio do projeto:
+
+- [x] Diárias de segunda à sexta-feira terão um valor fixo de R$ 120,00.
+- [x] Diárias em finais de semana terão um valor fixo de R$ 180,00.
+- [x] Caso o hóspede tenha carro e necessite utilizar as vagas disponíveis no estabelecimento, será cobrado uma taxa adicional de R$ 15,00 de segunda à sexta-feira e R$ 20,00 nos finais de semana.
+- [x] O horário para a realização do check-in será a partir das 14h. Ao tentar realizar o procedimento antes do horário prévio, o sistema deverá emitir um  alerta.
+- [x] O horário para a realização do checkout será até as 12h. Caso o procedimento seja realizado posterior, deverá ser cobrada uma taxa adicional de 50% do valor da diária (Respeitando a variação para dias úteis e finais de  semana).
+- [x] Durante o processo de checkout, deverá ser exibido em detalhes o total geral da reserva a ser paga.
 
 ## Tecnologias Utilizadas
 
 Este projeto foi desenvolvido com as seguintes tecnologias:
 
-- [Linguagem de Programação](https://link_para_documentacao): Exemplo: Python, JavaScript, etc.
-- [Framework/Biblioteca](https://link_para_documentacao): Exemplo: Django, React, etc.
-- [Banco de Dados](https://link_para_documentacao): Exemplo: PostgreSQL, MongoDB, etc.
-- [Ferramenta de Testes](https://link_para_documentacao): Exemplo: PyTest, JUnit, etc.
-- [Outras tecnologias](https://link_para_documentacao): Exemplo: Docker, CI/CD, etc.
-
-## Instalação e Configuração
-
-Para rodar o projeto localmente, siga os passos abaixo:
-
-1. Clone este repositório:
-    ```bash
-    git clone https://github.com/usuario/nome-do-projeto.git
-    ```
-2. Navegue até o diretório do projeto:
-    ```bash
-    cd nome-do-projeto
-    ```
-3. Instale as dependências:
-    ```bash
-    # Se for um projeto em Python
-    pip install -r requirements.txt
-    ```
-    ```bash
-    # Se for um projeto em JavaScript
-    npm install
-    ```
-4. Configure as variáveis de ambiente:
-
-    Crie um arquivo `.env` e configure as variáveis necessárias:
-    ```bash
-    cp .env.example .env
-    ```
-    Atualize as variáveis conforme necessário.
-
-5. Execute o projeto:
-    ```bash
-    # Comando para iniciar o projeto
-    ```
-
-## Contato
-
-Se tiver alguma dúvida ou sugestão, entre em contato comigo:
-
-- Nome: Ana Carolina Santos
-- Email: ana.c.santos2003@gmail.com
-- LinkedIn: [ana-carolina-santos](https://www.linkedin.com/in/ana-carolina-santos-3549a2218/)
-- GitHub: [AnaCarolinaSantos](https://github.com/AnaCarolinaSantos)
-
-
-# Desafio---Full-Stack-Frontend
- Aplicação para gestão de hóspedes em um hotel. Permite a realização de reservas, check-in e checkout.
-
-Vídeo: https://drive.google.com/file/d/1pE6ars5MP23B5fxsWUAndDmLbJMyQ_I0/view?usp=sharing
- 
-
-**Requisitos funcionais:**  
-
-Armazenar de forma persiste o cadastro de hóspedes (Informações mínimas:  Nome, documento, telefone); 
-
-Armazenar de forma persistente as reservas geradas; 
-
-Deve ser possível localizar hóspedes por: nome, documento e telefone; 
-
-Localizar hóspedes que ainda estão no hotel; 
-
-Localizar hóspedes que tem reservas, mas ainda não realizaram o check-in.
-
-Permitir ao atendente realizar o check-in; 
-
-Permitir ao atendente realizar o checkout; 
-
-
-**Regras de negócio:** 
-
-Diárias de segunda à sexta-feira terão um valor fixo de R$ 120,00; 
-
-Diárias em finais de semana terão um valor fixo de R$ 180,00; 
-
-Caso o hóspede tenha carro e necessite utilizar as vagas disponíveis no estabelecimento, será cobrado uma taxa adicional de R$ 15,00 de segunda à  sexta-feira e R$ 20,00 nos finais de semana; 
-
-O horário para a realização do check-in será a partir das 14h00min. Ao tentar realizar o procedimento antes do horário prévio, o sistema deverá emitir um  alerta;
-
-O horário para a realização do checkout será até as 12h00min. Caso o procedimento seja realizado posterior, deverá ser cobrada uma taxa adicional de  50% do valor da diária (Respeitando a variação para dias úteis e finais de  semana);
-
-Durante o processo de checkout, deverá ser exibido em detalhes o total geral da  reserva a ser paga; 
-
+- **Linguagens de Programação:** Java, HTML, CSS, SCSS, TypeScript, etc.
+- **Framework/Biblioteca:** Angular, Bootstrap, Material UI, etc.
+- **Banco de Dados:** PostgreSQL, etc.
+- **Ferramentas:** Remove.bg, etc.
+- **Outras tecnologias:** GitHub, Visual Studio Code, IntelliJ IDEA, etc.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
 
@@ -139,26 +73,21 @@ ng add @angular/material
 npm i
 ```
 
-## Development server
+- Execute `ng serve` para um servidor de desenvolvimento. Navegue até `http://localhost:4200/`. A aplicação será recarregada automaticamente se você alterar algum dos arquivos de origem.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Execute `ng generate component nome-do-componente` para gerar um novo componente. Você também pode usar `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Code scaffolding
+- Execute `ng build` para buildar o projeto. Os artefatos de build serão armazenados no diretório `dist/`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Execute `ng test` para executar os testes unitários via [Karma](https://karma-runner.github.io).
 
-## Build
+- Para obter mais ajuda sobre o Angular CLI, use `ng help` ou confira a página [Angular CLI Overview and Command Reference](https://angular.io/cli).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Contato
 
-## Running unit tests
+Se tiver alguma dúvida ou sugestão, entre em contato comigo:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Nome: Ana Carolina Santos
+- Email: ana.c.santos2003@gmail.com
+- LinkedIn: [ana-carolina-santos](https://www.linkedin.com/in/ana-carolina-santos-3549a2218/)
+- GitHub: [AnaCarolinaSantos](https://github.com/AnaCarolinaSantos)
